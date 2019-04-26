@@ -6,6 +6,9 @@ import App from '@/App.vue';
 
 import config from '@/config';
 
+// Plugins
+import '@/plugins/http';
+
 Vue.config.productionTip = false;
 Vue.config.devtools = config.DEBUG;
 

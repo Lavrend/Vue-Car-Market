@@ -18,6 +18,12 @@ export default new VueRouter({
     },
 
     {
+      path: '/catalog',
+      name: 'catalog',
+      component: () => import(/* webpackChunkName: 'catalog' */ '@/pages/Catalog.vue'),
+    },
+
+    {
       path: '/about',
       name: 'about',
       component: () => import(/* webpackChunkName: 'about' */ '@/pages/About.vue'),

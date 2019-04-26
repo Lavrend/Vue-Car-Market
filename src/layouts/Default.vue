@@ -31,6 +31,10 @@ export default {
 
   overflow: hidden;
 
+  &__header {
+    background: $gbg-lime;
+  }
+
   &__content {
     width: 100%;
     height: calc(100vh - #{$headerHeight});

@@ -35,7 +35,8 @@ export default {
   },
 
   created() {
-    this.$nextTick(() => {
+    this.$nextTick(async () => {
+      this.$store.dispatch('cars/init');
       this.$store.dispatch('app/setPageReady', true);
     });
   },

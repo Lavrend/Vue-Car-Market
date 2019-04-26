@@ -13,6 +13,7 @@ Vue Car Market - это приложение "Магазин-стоянка ав
 * [Vuex](https://vuex.vuejs.org/ru/)
 * [Vue Router](https://router.vuejs.org/ru/)
 * [Vue CLI v3.x](https://cli.vuejs.org/ru/)
+* [Axios](https://github.com/axios/axios)
 * [Webpack](https://webpack.js.org/) - работает под капотом Vue CLI (+ кастомный конфиг vue.config.js)
 
 а также:
@@ -25,6 +26,7 @@ Vue Car Market - это приложение "Магазин-стоянка ав
 ## Основная структура проекта
 ```
 vue-gallery
+└── api/
 └── dist/
 └── public/
 └── src/
@@ -33,6 +35,7 @@ vue-gallery
     └── config/
     └── layouts/
     └── pages/
+    └── plugins/
     └── store/
     └── styles/
     └── utils/
@@ -46,11 +49,12 @@ vue-gallery
 └── README.md
 └── ...
 ```
-
+* api/ - содержит json с данными, для имитации серверного API
 * components/ - основные компоненты приложения
 * config/ - конфиги
 * layouts/ - компоненты отображения, макеты (layouts)
 * pages/ - компоненты страниц (Home, About, etc.)
+* plugins/ - кастомный функционал Vue.js (Плагины)
 * store/ - компоненты хранилища, глобальное состояние (Vuex Store)
 * styles/ - глобальные стили (миксины, variables, transitions, etc.)
 * utils/ - вспомогательные скрипты и утилиты (Хэлперы)
