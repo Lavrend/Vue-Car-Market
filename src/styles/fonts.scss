@@ -1,0 +1,20 @@
+// https://fonts.google.com/specimen/M+PLUS+Rounded+1c (400,700, Cyrillic)
+
+@font-face {
+  font-family: 'M PLUS Rounded 1c';
+  src: url('~@/assets/fonts/M_PLUS_Rounded_1c.eot');
+  src: url('~@/assets/fonts/M_PLUS_Rounded_1c.eot?#iefix') format('embedded-opentype'),
+  url('~@/assets/fonts/M_PLUS_Rounded_1c.woff2') format('woff2'),
+  url('~@/assets/fonts/M_PLUS_Rounded_1c.woff') format('woff'),
+  url('~@/assets/fonts/M_PLUS_Rounded_1c.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'M PLUS Rounded 1c';
+  src: url('~@/assets/fonts/M_PLUS_Rounded_1c_bold.eot');
+  src: url('~@/assets/fonts/M_PLUS_Rounded_1c_bold.eot?#iefix') format('embedded-opentype'),
+  url('~@/assets/fonts/M_PLUS_Rounded_1c_bold.woff2') format('woff2'),
+  url('~@/assets/fonts/M_PLUS_Rounded_1c_bold.woff') format('woff'),
+  url('~@/assets/fonts/M_PLUS_Rounded_1c_bold.ttf') format('truetype');
+  font-weight: bold;
+}

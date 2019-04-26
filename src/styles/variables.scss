@@ -1,0 +1,114 @@
+// Standart variables set
+// gist: https://gist.github.com/Lavrend/ae528471a140c52c03e1eefda1148d1a
+
+// COLORS
+$white: #fff;
+$black: #000;
+$dark: #333;
+$dark-light: #434343;
+
+// grey
+$grey-1: #F8F9FB;
+$grey-2: #F2F3F5;
+$grey-3: #E9EDF0;
+$grey-4: #DEE1E6;
+$grey-5: #CFD4DA;
+$grey-6: #ADB6BD;
+$grey-7: #868F96;
+$grey-8: #495058;
+$grey-9: #353A40;
+$grey-10: #212429;
+
+// blue
+$blue-1: #EFF8FF;
+$blue-2: #A8D5F6;
+$blue-3: #63A2D8;
+$blue-4: #3083C7;
+$blue-5: #2268A3;
+$blue-6: #1A4A72;
+$blue-7: #213D53;
+$blue-8: #1B2735;
+$blue-9: #090A0F;
+
+// lime
+$lime-1: #E7FFFF;
+$lime-2: #A8EFEB;
+$lime-3: #6ED7D3;
+$lime-4: #3CAEA4;
+$lime-5: #299186;
+$lime-6: #1C655E;
+$lime-7: #134544;
+
+// green
+$green-1: #E4FCEC;
+$green-2: #A9EEC1;
+$green-3: #74D99F;
+$green-4: #38C173;
+$green-5: #259C58;
+$green-6: #197742;
+$green-7: #155239;
+
+// red
+$red-1: #FCE8E9;
+$red-2: #F4AAA9;
+$red-3: #E46463;
+$red-4: #DC3030;
+$red-5: #B8201E;
+$red-6: #891B1A;
+$red-7: #601819;
+
+// yellow
+$yellow-1: #FFFCF3;
+$yellow-2: #FDF4D7;
+$yellow-3: #FAE39F;
+$yellow-4: #F4CA64;
+$yellow-5: #CAA53D;
+$yellow-6: #8C6C1F;
+$yellow-7: #5C4813;
+// ----------------------------------------
+
+// GRADIENTS
+$gbg-black: linear-gradient(to bottom, $black, $dark-light);
+$gbg-black-reverse: linear-gradient(to top, $black, $dark-light);
+$gbg-dark: linear-gradient(to bottom, $grey-10 0%, $dark-light 50%, $grey-10 100%);
+$gbg-grey: linear-gradient(to bottom, $grey-6 0%, $grey-5 15%, $grey-4 50%, $grey-5 85%, $grey-6 100%);
+$gbg-blue: linear-gradient(to bottom, $blue-6 0%, $blue-5 15%, $blue-4 50%, $blue-5 85%, $blue-6 100%);
+$gbg-lime: linear-gradient(to bottom, $lime-6 0%, $lime-5 15%, $lime-4 50%, $lime-5 85%, $lime-6 100%);
+$gbg-green: linear-gradient(to bottom, $green-6 0%, $green-5 15%, $green-4 50%, $green-5 85%, $green-6 100%);
+$gbg-red: linear-gradient(to bottom, $red-6 0%, $red-5 15%, $red-4 50%, $red-5 85%, $red-6 100%);
+$gbg-yellow: linear-gradient(to bottom, $yellow-6 0%, $yellow-5 15%, $yellow-4 50%, $yellow-5 85%, $yellow-6 100%);
+// -------------------------
+
+// SHADOWS
+$boxShadow-black: 0px 5px 10px rgba($black, 0.3);
+// ------------------------------
+
+// FONTS
+$mainFont: 'M PLUS Rounded 1c', sans-serif;
+// ---------------------------------------
+
+// INDENTS (margin & padding)
+$indent-xs: 2px;
+$indent-sm: 5px;
+$indent-md: 10px;
+$indent-lg: 20px;
+$indent-xl: 50px;
+// --------------------------------
+
+// Z-INDEXES
+$zIndex-50: 50;
+$zIndex-100: 100;
+$zIndex-150: 150;
+$zIndex-200: 200;
+$zIndex-250: 250;
+$zIndex-300: 300;
+
+$zIndexOverlay: $zIndex-200;
+$zIndexContent: $zIndex-150;
+// -----------------------
+
+// Global App variables
+$screenMinWidth: 320px;
+$screenMaxWidth: 1280px;
+
+$headerHeight: 50px;
