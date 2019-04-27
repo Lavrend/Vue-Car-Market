@@ -1,17 +1,16 @@
 <template lang="pug">
-  transition-group.catalog-list(
-    name="transition-scale"
-    tag="div"
-  )
-    CatalogItem.catalog-list__item(
-      v-for="item in items"
-      :key="getItemUniqKey(item)"
-      :country="item.country"
-      :brand="item.brand"
-      :model="item.model"
-      :year="item.year"
-      :vin="item.vin"
-    )
+  .catalog-list
+    transition(name="transition-scale" mode="out-in")
+      .catalog-list__wrapper(:key="currentPage")
+        CatalogItem.catalog-list__item(
+          v-for="item in items"
+          :key="getItemUniqKey(item)"
+          :country="item.country"
+          :brand="item.brand"
+          :model="item.model"
+          :year="item.year"
+          :vin="item.vin"
+        )
 </template>
 
 <script>
@@ -28,6 +27,7 @@ export default {
   computed: {
     ...mapState('cars', [
       'items',
+      'currentPage',
     ]),
   },
 
@@ -44,9 +44,11 @@ export default {
   max-width: $screenMaxWidth;
   margin: 0 auto;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: $indent-md;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: $indent-md;
+  }
 
   &__item {
     height: 20vh;

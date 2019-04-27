@@ -10,6 +10,14 @@ export default {
   },
 
   [types.SET_PAGE](state, { page }) {
-    state.page = page;
+    state.currentPage = page;
+  },
+
+  [types.SET_PAGE_SIZE](state, { pageSize }) {
+    state.pageSize = pageSize;
+  },
+
+  [types.SET_TOTAL](state, { total }) {
+    state.total = total;
   },
 };

@@ -1,13 +1,12 @@
 <template lang="pug">
   article.catalog-item
-    transition(name="transition-scale" mode="out-in")
-      .catalog-item__content
-        h2.catalog-item__titile
-          | {{ getItemTitle }}
-        p.catalog-item__description
-          | {{ vin ? `VIN: ${vin}` : '' }}
-        p.catalog-item__description
-          | From: {{ country }}
+    .catalog-item__content
+      h2.catalog-item__titile
+        | {{ getItemTitle }}
+      p.catalog-item__description
+        | {{ vin ? `VIN: ${vin}` : '' }}
+      p.catalog-item__description
+        | From: {{ country }}
 </template>
 
 <script>

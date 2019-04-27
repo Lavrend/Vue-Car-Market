@@ -1,5 +1,12 @@
 <template lang="pug">
   section.page-catalog
+    Pagination(
+      :total="total"
+      :current="currentPage"
+      :pageSize="pageSize"
+      @changePage="changePage"
+    )
+
     CatalogList.page-catalog__list
     .page-catalog__empty-list(v-if="!itemsLength")
       | The list is empty
@@ -9,22 +16,34 @@
 import { mapState, mapGetters } from 'vuex';
 
 import CatalogList from '@/components/Catalog/CatalogList';
+import Pagination from '@/ui/Pagination';
 
 export default {
   name: 'page-catalog',
 
   components: {
     CatalogList,
+    Pagination,
   },
 
   computed: {
     ...mapState('cars', [
-      'items',
+      'currentPage',
+      'pageSize',
+      'total',
     ]),
 
     ...mapGetters('cars', [
       'itemsLength',
     ]),
+  },
+
+  methods: {
+    changePage(page = 1) {
+      this.$store.dispatch('cars/setCurrentPage', {
+        page,
+      });
+    },
   },
 };
 </script>

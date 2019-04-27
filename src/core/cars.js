@@ -3,10 +3,12 @@
 // ============
 import Vue from 'vue';
 import flattenData from '@/utils/flattenData';
+import paginate from '@/utils/paginate';
 
 class CarsCore {
   constructor() {
     this.flattenCarsData = [];
+    this.currentPage = 1;
     this.inited = false;
   }
 
@@ -31,8 +33,11 @@ class CarsCore {
     return this;
   }
 
-  getItems() {
-    return this.flattenCarsData;
+  getPaginationData({ page }) {
+    this.currentPage = page || 1;
+    const paginationData = paginate(this.flattenCarsData, this.currentPage);
+
+    return paginationData;
   }
 }
 
