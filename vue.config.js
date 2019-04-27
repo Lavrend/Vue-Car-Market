@@ -15,9 +15,9 @@ module.exports = {
         next();
       });
 
-      app.get('/api/cars', (req, res) => {
+      app.get('/api/catalog', (req, res) => {
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        createReadStream(join(process.cwd(), 'api/cars.json'), { encoding: 'utf-8' })
+        createReadStream(join(process.cwd(), 'api/catalog.json'), { encoding: 'utf-8' })
           .pipe(res);
       });
     },

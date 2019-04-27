@@ -1,5 +1,5 @@
 /**
- * Getters for the Cars module
+ * Getters for the Catalog module
  */
 
 export default {

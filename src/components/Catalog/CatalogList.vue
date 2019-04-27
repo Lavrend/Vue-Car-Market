@@ -1,7 +1,7 @@
 <template lang="pug">
   .catalog-list
     transition(name="transition-scale" mode="out-in")
-      .catalog-list__wrapper(:key="currentPage")
+      .catalog-list__wrapper(:key="getCatalogUniqKey")
         CatalogItem.catalog-list__item(
           v-for="item in items"
           :key="getItemUniqKey(item)"
@@ -25,10 +25,16 @@ export default {
   },
 
   computed: {
-    ...mapState('cars', [
+    ...mapState('catalog', [
       'items',
+      'search',
       'currentPage',
+      'pageSize',
     ]),
+
+    getCatalogUniqKey() {
+      return `${this.pageSize}_${this.currentPage}_${this.search}`;
+    },
   },
 
   methods: {

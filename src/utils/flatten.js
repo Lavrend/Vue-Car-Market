@@ -1,4 +1,4 @@
-const flattenData = (data = []) => {
+const flatten = (data = []) => {
   const total = [];
 
   data.forEach((country) => {
@@ -42,4 +42,4 @@ const flattenData = (data = []) => {
   return total;
 };
 
-export default flattenData;
+export default flatten;

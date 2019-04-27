@@ -1,5 +1,5 @@
 /**
- * Cars Store Module
+ * Catalog Store Module
  */
 
 import state from './state';
@@ -8,7 +8,7 @@ import actions from './actions';
 import mutations from './mutations';
 
 export default {
-  name: 'cars',
+  name: 'catalog',
   namespaced: true,
   actions,
   getters,

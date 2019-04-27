@@ -1,48 +1,48 @@
 <template lang="pug">
-  .pagination
+  .ui-pagination
     transition(name="transition-fade" mode="out-in")
-      ul.pagination__list(v-if="totalPages > 0" :key="`${currentPage}-${currentPageSize}`")
-        li.pagination__item(
+      ul.ui-pagination__list(v-if="totalPages > 0" :key="`${currentPage}-${currentPageSize}`")
+        li.ui-pagination__item(
           :class="getItemPrevClass"
           @click="changePage(currentPage - 1, true)"
         )
-          span.pagination__item-inner
+          span.ui-pagination__item-inner
             | <
 
-        .pagination__list-center
-          li.pagination__item(v-if="isFirst" @click="changePage(1)")
-            span.pagination__item-inner
+        .ui-pagination__list-center
+          li.ui-pagination__item(v-if="isFirst" @click="changePage(1)")
+            span.ui-pagination__item-inner
               | 1
 
-          li.pagination__item(v-if="isRangeFirst")
-            span.pagination__item-inner(v-if="rangeStart - 1 === 2" @click="changePage(2)")
+          li.ui-pagination__item(v-if="isRangeFirst")
+            span.ui-pagination__item-inner(v-if="rangeStart - 1 === 2" @click="changePage(2)")
               | 2
-            span.pagination__item-inner(v-else @click="changePage(rangeStart - 3, false, true)")
+            span.ui-pagination__item-inner(v-else @click="changePage(rangeStart - 3, false, true)")
               | ...
 
-          li.pagination__item(v-for="page in pages"
+          li.ui-pagination__item(v-for="page in pages"
             :key="page"
             :class="getItemCurrentClass(page)"
             @click="changePage(page)"
           )
-            span.pagination__item-inner
+            span.ui-pagination__item-inner
               | {{ page }}
 
-          li.pagination__item(v-if="isRangeLast")
-            span.pagination__item-inner(v-if="rangeEnd + 2 === totalPages" @click="changePage(totalPages - 1)")
+          li.ui-pagination__item(v-if="isRangeLast")
+            span.ui-pagination__item-inner(v-if="rangeEnd + 2 === totalPages" @click="changePage(totalPages - 1)")
               | {{ totalPages - 1 }}
-            span.pagination__item-inner(v-else @click="changePage(rangeEnd + 3, false, true)")
+            span.ui-pagination__item-inner(v-else @click="changePage(rangeEnd + 3, false, true)")
               | ...
 
-          li.pagination__item(v-if="isLast" @click="changePage(totalPages)")
-            span.pagination__item-inner
+          li.ui-pagination__item(v-if="isLast" @click="changePage(totalPages)")
+            span.ui-pagination__item-inner
               | {{ totalPages }}
 
-        li.pagination__item(
+        li.ui-pagination__item(
           :class="getItemNextClass"
           @click="changePage(currentPage + 1, true)"
         )
-          span.pagination__item-inner
+          span.ui-pagination__item-inner
             | >
 </template>
 
@@ -82,15 +82,15 @@ export default {
   computed: {
     getItemPrevClass() {
       return {
-        'pagination__item--prev': true,
-        'pagination__item--locked': !this.hasPrev,
+        'ui-pagination__item--prev': true,
+        'ui-pagination__item--locked': !this.hasPrev,
       };
     },
 
     getItemNextClass() {
       return {
-        'pagination__item--next': true,
-        'pagination__item--locked': !this.hasNext,
+        'ui-pagination__item--next': true,
+        'ui-pagination__item--locked': !this.hasNext,
       };
     },
 
@@ -159,14 +159,14 @@ export default {
   methods: {
     getItemCurrentClass(page) {
       return {
-        'pagination__item--current': this.currentPage === page,
+        'ui-pagination__item--current': this.currentPage === page,
       };
     },
 
     changePage(page, isBtn = false, isBetweenBtn = false) {
       let currentPage = page;
 
-      if (isBtn && (currentPage < 1 || currentPage > this.totalPages)) {
+      if (this.currentPage === currentPage || (isBtn && (currentPage < 1 || currentPage > this.totalPages))) {
         return;
       }
 
@@ -186,7 +186,7 @@ export default {
 </script>
 
 <style lang="scss">
-.pagination {
+.ui-pagination {
   width: 100%;
   margin-top: $indent-md;
   font-size: 15px;
@@ -259,7 +259,7 @@ export default {
     cursor: not-allowed;
   }
 
-  &__item:not(.pagination__item--current):not(.pagination__item--locked):hover {
+  &__item:not(.ui-pagination__item--current):not(.ui-pagination__item--locked):hover {
     border-color: darken($grey-2, 25%);
     color: darken($grey-6, 25%);
   }

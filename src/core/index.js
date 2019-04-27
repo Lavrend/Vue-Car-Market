@@ -1,7 +1,7 @@
-import CarsCore from './cars';
+import CatalogCore from './CatalogCore';
 
 const AppCore = {
-  cars: new CarsCore(),
+  catalog: new CatalogCore(),
 };
 
 export default AppCore;

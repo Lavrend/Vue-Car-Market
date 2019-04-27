@@ -1,8 +1,8 @@
 // All store modules
 import app from './app';
-import cars from './cars';
+import catalog from './catalog';
 
 export default {
   app,
-  cars,
+  catalog,
 };

@@ -1,5 +1,5 @@
 /**
- * Mutations for the Cars module
+ * Mutations for the Catalog module
  */
 
 import types from './types';
@@ -7,6 +7,10 @@ import types from './types';
 export default {
   [types.SET_ITEMS](state, { items }) {
     state.items = items;
+  },
+
+  [types.SET_SEARCH](state, { search }) {
+    state.search = search;
   },
 
   [types.SET_PAGE](state, { page }) {

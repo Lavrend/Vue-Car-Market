@@ -36,7 +36,7 @@ export default {
 
   created() {
     this.$nextTick(async () => {
-      this.$store.dispatch('cars/init');
+      this.$store.dispatch('catalog/init');
       this.$store.dispatch('app/setPageReady', true);
     });
   },
