@@ -61,8 +61,6 @@ export default {
   }
 
   &__nav-menu {
-    height: 100%;
-    margin-right: $indent-md;
     font-size: 20px;
 
     display: flex;
@@ -74,7 +72,7 @@ export default {
   &__menu-item {
     height: 100%;
     margin: 0 $indent-md;
-    padding: $indent-md 0;
+    padding: $indent-md;
     line-height: 1;
     color: $white;
     text-decoration: none;
@@ -88,6 +86,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__menu-item:last-child {
+    margin-right: 0;
   }
 
   &__menu-item:hover {
@@ -110,10 +112,31 @@ export default {
     }
   }
 
+  @media screen and (min-width: 381px) and (max-width: 780px) {
+    &__logo, &__nav-menu {
+      font-size: 17px;
+    }
+
+    &__menu-item {
+      margin: 0 $indent-xs;
+    }
+  }
+
   @media screen and (max-width: 380px) {
+    &__wrapper {
+      padding-right: $indent-md;
+    }
+
+    &__logo, &__nav-menu {
+      font-size: 16px;
+    }
+
     &__logo {
       margin-left: -$indent-sm;
-      font-size: 18px;
+    }
+
+    &__menu-item {
+      padding: 0 $indent-xs;
     }
   }
 }

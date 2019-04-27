@@ -51,6 +51,7 @@ export default {
 <style lang="scss">
 .page-catalog {
   height: 100%;
+  background: rgba($white, 0.8);
   text-align: center;
 
   overflow-y: auto;

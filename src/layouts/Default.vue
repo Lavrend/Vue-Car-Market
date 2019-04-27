@@ -24,7 +24,9 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background: $blue-1;
+  background: url('~@/assets/images/delorean.jpg'), url($bgHomepageBase64);
+  background-size: cover;
+  background-position: center;
 
   display: flex;
   flex-flow: column nowrap;
@@ -32,7 +34,7 @@ export default {
   overflow: hidden;
 
   &__header {
-    background: $gbg-lime;
+    background: $lime-5;
   }
 
   &__content {
@@ -40,7 +42,7 @@ export default {
     height: calc(100vh - #{$headerHeight});
     min-width: $screenMinWidth;
 
-    overflow-y: auto;
+    overflow: hidden;
   }
 }
 </style>

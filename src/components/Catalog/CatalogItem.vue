@@ -39,7 +39,7 @@ $borderRadius: 10px;
 .catalog-item {
   width: 100%;
   height: 100%;
-  background: $grey-3;
+  background: rgba($white, 0.9);
   border: 1px solid $grey-5;
   border-radius: $borderRadius;
   overflow: hidden;
@@ -69,7 +69,7 @@ $borderRadius: 10px;
   }
 
   &:hover {
-    background: $green-1;
+    background: $lime-1;
   }
 }
 </style>
