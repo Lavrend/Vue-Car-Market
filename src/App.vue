@@ -53,6 +53,8 @@ export default {
   font-family: $mainFont;
   overflow: hidden;
 
+  user-select: none;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

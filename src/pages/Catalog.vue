@@ -1,57 +1,52 @@
 <template lang="pug">
   section.page-catalog
-    Input.page-catalog__search(
-      v-model="inputValue"
-      :placeholder="placeholder"
-      size="40"
-      type="search"
-      @change="onChangeSearch"
-    )
+    CatalogControl(
+      position="left"
+      toggleLabel="Search"
+      :isActive="isSearchActive"
+      @toggle="searchToggle")
+      CatalogSearch.page-catalog__search
 
-    transition(name="transition-scale" mode="out-in")
-      Pagination.page-catalog__pagination(
-        :key="getPaginationKey"
-        :total="total"
-        :current="currentPage"
-        :pageSize="pageSize"
-        @changePage="onChangePage"
-      )
+    .page-catalog__content
+      h1.page-catalog__title
+        | Cars catalog
+      .page-catalog__title-label
+        | {{ getTitleLabel }}
 
-    CatalogList.page-catalog__list
-    .page-catalog__empty-list(v-if="!itemsLength")
-      | The list is empty
+      CatalogPagination.page-catalog__pagination(:minPages="2")
+
+      CatalogList.page-catalog__list
+      .page-catalog__empty-list(v-if="!itemsLength")
+        | The list is empty
+
+      CatalogPagination.page-catalog__pagination(:minPages="2")
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
 
-import _debounce from 'lodash.debounce';
-
+import CatalogControl from '@/components/Catalog/CatalogControl';
+import CatalogSearch from '@/components/Catalog/CatalogSearch';
+import CatalogPagination from '@/components/Catalog/CatalogPagination';
 import CatalogList from '@/components/Catalog/CatalogList';
-import Pagination from '@/ui/Pagination';
-import Input from '@/ui/Input';
 
 export default {
   name: 'page-catalog',
 
   components: {
+    CatalogControl,
+    CatalogSearch,
+    CatalogPagination,
     CatalogList,
-    Pagination,
-    Input,
-  },
-
-  data() {
-    return {
-      placeholder: 'Type here to search (min 2 chars)',
-      inputValue: '',
-    };
   },
 
   computed: {
+    ...mapState('app', [
+      'isSearchActive',
+    ]),
+
     ...mapState('catalog', [
-      'search',
       'currentPage',
-      'pageSize',
       'total',
     ]),
 
@@ -59,39 +54,43 @@ export default {
       'itemsLength',
     ]),
 
-    getPaginationKey() {
-      return `${this.pageSize}_${this.search}`;
+    getTitleLabel() {
+      if (this.total <= 0) return 'models not available';
+
+      return this.total > 1
+        ? `${this.total} models are available`
+        : `${this.total} model is available`;
     },
   },
 
   methods: {
-    onChangePage(page = 1) {
-      this.$store.dispatch('catalog/setCurrentPage', {
-        page,
-      });
+    searchToggle() {
+      this.$store.dispatch('app/searchToggle');
     },
-
-    onChangeSearch: _debounce(function debounceChange(value = '') {
-      const search = String(value || '').trim();
-
-      this.$store.dispatch('catalog/setSearchFilter', {
-        search,
-      });
-    }, 1000),
   },
 };
 </script>
 
 <style lang="scss">
 .page-catalog {
+  position: relative;
   height: 100%;
   background: rgba($white, 0.8);
   text-align: center;
 
-  overflow-y: auto;
+  &__content {
+    height: 100%;
+    overflow-y: auto;
+  }
 
-  &__search {
-    margin: $indent-md;
+  &__title {
+    color: $lime-5;
+    margin-bottom: 0;
+  }
+
+  &__title-label {
+    font-size: 13px;
+    color: $grey-7;
   }
 
   &__list {
@@ -101,6 +100,12 @@ export default {
   &__empty-list {
     padding: $indent-md;
     font-size: 1.2em;
+    color: $grey-7;
+  }
+
+  &__pagination {
+    margin: $indent-md 0;
+    margin-bottom: $indent-lg;
   }
 }
 </style>

@@ -35,9 +35,7 @@ export default {
     const len = search.length;
     const minLength = 2;
 
-    if (!state.search && len < minLength) {
-      return;
-    }
+    if (!state.search && len < minLength) return;
 
     commit(types.SET_SEARCH, {
       search: len >= minLength ? search : '',

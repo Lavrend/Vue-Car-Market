@@ -1,8 +1,9 @@
 <template lang="pug">
   .ui-pagination
     transition(name="transition-fade" mode="out-in")
-      ul.ui-pagination__list(v-if="totalPages > 0" :key="`${currentPage}-${currentPageSize}`")
+      ul.ui-pagination__list(v-if="isMinPagesShow" :key="`${currentPage}-${currentPageSize}`")
         li.ui-pagination__item(
+          v-if="withArrows"
           :class="getItemPrevClass"
           @click="changePage(currentPage - 1, true)"
         )
@@ -39,6 +40,7 @@
               | {{ totalPages }}
 
         li.ui-pagination__item(
+          v-if="withArrows"
           :class="getItemNextClass"
           @click="changePage(currentPage + 1, true)"
         )
@@ -71,6 +73,16 @@ export default {
     current: {
       type: Number,
       default: 1,
+    },
+
+    minPages: {
+      type: Number,
+      default: 1,
+    },
+
+    withArrows: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -110,6 +122,10 @@ export default {
 
     pages() {
       return Array.from({ length: this.rangeEnd - this.rangeStart + 1 }, (_, i) => i + this.rangeStart);
+    },
+
+    isMinPagesShow() {
+      return this.totalPages >= this.minPages;
     },
 
     isFirst() {
@@ -188,15 +204,13 @@ export default {
 <style lang="scss">
 .ui-pagination {
   width: 100%;
-  margin-top: $indent-md;
-  font-size: 15px;
+  font-size: 14px;
   user-select: none;
 
   display: inline-flex;
   justify-content: center;
 
   &__list {
-    margin: 0 $indent-sm;
     padding: 0;
     vertical-align: middle;
 
@@ -219,7 +233,7 @@ export default {
     margin: $indent-xs;
     padding: 0;
     background: $grey-2;
-    border-radius: 3px;
+    border-radius: $borderRadius;
     border: 1px solid $grey-5;
     color: $grey-7;
     cursor: pointer;
@@ -227,10 +241,18 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &__item-inner {
-    padding: $indent-md - 2;
+    padding: $indent-sm;
   }
 
   &__item--prev {

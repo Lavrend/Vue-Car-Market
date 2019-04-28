@@ -84,6 +84,7 @@ $gbg-yellow: linear-gradient(to bottom, $yellow-6 0%, $yellow-5 15%, $yellow-4 5
 
 // SHADOWS
 $boxShadow-black: 0px 5px 10px rgba($black, 0.3);
+$boxShadow-dark: 0px 5px 8px rgba($dark, 0.2);
 // ------------------------------
 
 // FONTS
@@ -116,3 +117,4 @@ $screenMaxWidth: 1280px;
 
 $headerShadow: 0 0 1px $dark-light, $boxShadow-black;
 $headerHeight: 60px;
+$borderRadius: 10px;

@@ -35,8 +35,6 @@ export default {
   text-align: left;
   box-shadow: $headerShadow;
 
-  user-select: none;
-
   // Need for display the layer correct (above content layer and sidebar)
   z-index: $zIndex-200;
 

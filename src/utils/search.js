@@ -1,9 +1,9 @@
 const search = (data = [], searchQuery = '') => {
-  const value = String(searchQuery || '').toLowerCase();
+  let values = String(searchQuery || '').toLowerCase();
 
-  if (!value) {
-    return data;
-  }
+  if (!values) return data;
+
+  values = values.split(' ');
 
   const filterMethod = (item = {}) => {
     const keys = Object.keys(item);
@@ -11,11 +11,9 @@ const search = (data = [], searchQuery = '') => {
     return keys.some((key) => {
       const itemValue = String(item[key] || '');
 
-      if (!itemValue) {
-        return false;
-      }
+      if (!itemValue) return false;
 
-      return itemValue.toLowerCase().indexOf(value.toLowerCase()) > -1;
+      return values.some(value => itemValue.toLowerCase().indexOf(value.toLowerCase()) > -1);
     });
   };
 

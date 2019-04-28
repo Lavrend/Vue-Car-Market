@@ -5,6 +5,7 @@
       :placeholder="placeholder"
       :type="type"
       :size="size"
+      :title="placeholder"
       @blur="onBlur"
     )
 </template>
@@ -88,9 +89,10 @@ export default {
     appearance: none;
   }
 
-  &__input::-webkit-input-placeholder { color: $grey-6; }
-  &__input::-ms-input-placeholder { color: $grey-6; }
-  &__input::-moz-placeholder { color: $grey-6; }
-  &__input::placeholder { color: $grey-6; }
+  &__input::-webkit-input-placeholder { color: $grey-6; text-overflow: ellipsis; }
+  &__input::-ms-input-placeholder { color: $grey-6; text-overflow: ellipsis; }
+  &__input::-moz-placeholder { color: $grey-6; text-overflow: ellipsis; }
+  &__input::placeholder { color: $grey-6; text-overflow: ellipsis; }
+  &__input[placeholder] { color: $grey-6; text-overflow: ellipsis; }
 }
 </style>
