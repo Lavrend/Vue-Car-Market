@@ -14,6 +14,9 @@ export default new VueRouter({
     {
       path: '/',
       name: 'home',
+      meta: {
+        layout: 'home',
+      },
       component: Home,
     },
 

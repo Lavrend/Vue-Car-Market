@@ -1,7 +1,7 @@
 .transition-fade {
   &-enter-active,
   &-leave-active {
-    transition: opacity .2s ease !important;
+    transition: opacity .2s ease;
   }
 
   &-enter,
@@ -18,7 +18,7 @@
 .transition-scale {
   &-enter-active,
   &-leave-active {
-    transition: transform .2s ease !important;
+    transition: transform .2s ease;
     overflow: hidden;
   }
 
@@ -40,7 +40,7 @@
 .transition-zoom {
   &-enter-active,
   &-leave-active {
-    transition: all .3s ease !important;
+    transition: all .3s ease;
     transform-origin: center;
   }
 

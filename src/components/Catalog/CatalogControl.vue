@@ -75,6 +75,9 @@ export default {
 
   display: flex;
 
+  // Need for display the layer correct (after header and before content)
+  z-index: $zIndexContent;
+
   &__toggle {
     color: $grey-7;
     transition: color .3s ease;

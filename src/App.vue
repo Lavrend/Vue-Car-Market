@@ -15,12 +15,14 @@
 import { mapState } from 'vuex';
 
 // Layouts
+import LayoutHome from '@/layouts/Home';
 import LayoutDefault from '@/layouts/Default';
 
 export default {
   name: 'App',
 
   components: {
+    LayoutHome,
     LayoutDefault,
   },
 
@@ -30,12 +32,18 @@ export default {
     ]),
 
     getLayout() {
+      const metaLayout = this.$route.meta.layout;
+
+      if (metaLayout === 'home') {
+        return 'LayoutHome';
+      }
+
       return 'LayoutDefault';
     },
   },
 
   created() {
-    this.$nextTick(async () => {
+    this.$nextTick(() => {
       this.$store.dispatch('catalog/init');
       this.$store.dispatch('app/setPageReady', true);
     });
