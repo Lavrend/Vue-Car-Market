@@ -268,7 +268,6 @@ export default {
   }
 
   &__item--current {
-    background: $grey-3;
     color: $lime-5;
     border-color: $lime-5;
     cursor: default;
@@ -284,6 +283,13 @@ export default {
   &__item:not(.ui-pagination__item--current):not(.ui-pagination__item--locked):hover {
     border-color: darken($grey-2, 25%);
     color: darken($grey-6, 25%);
+  }
+
+  @media screen and (max-width: 430px) {
+    &__list-center {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
   }
 }
 </style>

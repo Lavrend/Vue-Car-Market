@@ -6,7 +6,10 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --no-fix",
-    "lint:autofix": "vue-cli-service lint --fix"
+    "lint:autofix": "vue-cli-service lint --fix",
+
+    "now-build": "vue-cli-service build",
+    "deploy": "yarn build && now"
   },
   "dependencies": {
     "axios": "^0.18.0",

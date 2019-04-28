@@ -1,7 +1,7 @@
 <template lang="pug">
-  header.header
+  header.header.notranslate
     .header__wrapper
-      .header__logo CAR MARKET
+      router-link.header__logo(to="/") CAR MARKET
 
       nav.header__nav-menu
         router-link.header__menu-item(
@@ -55,6 +55,7 @@ export default {
     font-weight: bold;
     white-space: nowrap;
     color: $white;
+    text-decoration: none;
     flex: 0;
   }
 

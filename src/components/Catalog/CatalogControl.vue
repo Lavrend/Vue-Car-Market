@@ -1,5 +1,5 @@
 <template lang="pug">
-  .catalog-control(:class="getControlClass")
+  .catalog-control.notranslate(:class="getControlClass")
     .catalog-control__content
       slot
 
@@ -66,7 +66,7 @@ export default {
 
 .catalog-control {
   position: absolute;
-  padding: $indent-md;
+  padding: $indent-sm + 1 $indent-md - 2;
   background: $grey-2;
   border: 1px solid $grey-4;
   box-shadow: $boxShadow-dark;
@@ -79,6 +79,7 @@ export default {
   z-index: $zIndexContent;
 
   &__toggle {
+    padding: 0 $indent-md;
     color: $grey-7;
     transition: color .3s ease;
     cursor: pointer;
@@ -99,18 +100,20 @@ export default {
   &--position-left {
     left: 0;
     top: 0;
+    padding-right: 0;
     border-top: 0;
     border-bottom-right-radius: $borderRadius;
     transform: translateX(calc(-100% + 100px)) translateY(0);
   }
 
   &--position-left &__toggle {
-    margin-left: $indent-lg;
+    margin-left: $indent-md;
   }
 
   &--position-right {
     right: 0;
     top: 0;
+    padding-left: 0;
     border-bottom-left-radius: $borderRadius;
     transform: translateX(calc(100% - 100px)) translateY(0);
     flex-direction: row-reverse;

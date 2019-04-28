@@ -1,7 +1,9 @@
 <template lang="pug">
   section.page-about
+    uiSpinner.page-about__spinner(v-if="!isReady")
+
     transition(name="transition-zoom" mode="out-in")
-      .page-about__content(v-show="isIframeLoaded" ref="iframWrapper")
+      .page-about__content(v-show="isReady" ref="iframWrapper")
         iframe(
           ref="iframDocument"
           src="/github_page.html"
@@ -11,12 +13,18 @@
 </template>
 
 <script>
+import uiSpinner from '@/ui/Spinner';
+
 export default {
   name: 'page-about',
 
+  components: {
+    uiSpinner,
+  },
+
   data() {
     return {
-      isIframeLoaded: false,
+      isReady: false,
     };
   },
 
@@ -27,17 +35,28 @@ export default {
 
   methods: {
     iframeLoaded() {
-      this.isIframeLoaded = true;
+      this.isReady = true;
     },
   },
 };
 </script>
 
 <style lang="scss">
+$spinnerWidth: 70px;
+$spinnerHeight: 50px;
+
 .page-about {
   height: 100%;
   text-align: center;
   background: rgba($white, 0.4);
+
+  &__spinner {
+    position: relative;
+    width: $spinnerWidth;
+    height: $spinnerHeight;
+    top: $headerHeight;
+    margin: 0 auto;
+  }
 
   &__content {
     width: 100%;

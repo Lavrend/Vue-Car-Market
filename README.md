@@ -27,7 +27,7 @@ Vue Car Market - это приложение "Магазин-стоянка ав
 
 ## Основная структура проекта
 ```
-vue-gallery
+vue-car-market
 └── api/
 └── dist/
 └── public/
@@ -94,12 +94,19 @@ yarn start
 
 ### Собрать и минифицировать билд
 ```
-yarn run build
+yarn build
 ```
 
 ### Запустить eslint
 ```
-yarn run lint
+yarn lint
 ```
+
+### Деплой
+```
+yarn deploy
+```
+
+Для деплоя и хостинга используется платформа Now Platform v2.0 - [Cборщик @now/static-build](https://zeit.co/guides/deploying-vuejs-to-now)
 
 ## TODO

@@ -8,7 +8,7 @@
         v-model="currentInputValue"
         :placeholder="placeholder"
         :value="currentInputValue"
-        size="30"
+        size="34"
         type="search"
         @change="onChangeSearch"
       )
@@ -73,11 +73,8 @@ export default {
   width: 100%;
 
   &__label {
+    margin-right: $indent-md;
     color: $grey-7;
-  }
-
-  &__input {
-    margin-left: $indent-md;
   }
 
   @media screen and (max-width: 480px) {

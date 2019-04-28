@@ -63,7 +63,7 @@ export default {
     height: 100%;
     padding: $indent-md - 2;
     padding-top: $indent-md - 3;
-    font-size: 15px;
+    font-size: 14px;
     background: $grey-2;
     border-radius: 3px;
     border: 1px solid $grey-5;
@@ -93,6 +93,5 @@ export default {
   &__input::-ms-input-placeholder { color: $grey-6; text-overflow: ellipsis; }
   &__input::-moz-placeholder { color: $grey-6; text-overflow: ellipsis; }
   &__input::placeholder { color: $grey-6; text-overflow: ellipsis; }
-  &__input[placeholder] { color: $grey-6; text-overflow: ellipsis; }
 }
 </style>

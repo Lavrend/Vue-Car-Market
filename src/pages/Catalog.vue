@@ -10,7 +10,7 @@
     .page-catalog__content
       h1.page-catalog__title
         | Cars catalog
-      .page-catalog__title-label
+      .page-catalog__title-label.notranslate
         | {{ getTitleLabel }}
 
       CatalogPagination.page-catalog__pagination(:minPages="2")
@@ -79,6 +79,7 @@ export default {
 
   &__content {
     height: 100%;
+    padding-bottom: $indent-md;
     overflow-y: auto;
   }
 
@@ -104,7 +105,6 @@ export default {
 
   &__pagination {
     margin: $indent-md 0;
-    margin-bottom: $indent-lg;
   }
 }
 </style>

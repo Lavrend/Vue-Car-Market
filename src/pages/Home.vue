@@ -15,9 +15,9 @@
             | This project was created <br/>to <span class='primary-text'>demonstrate</span> the capabilities of <span class='primary-text'>Vue.js</span>
 
         transition(name="transition-scale")
-          .page-home__flex-buttons(v-show="isReady")
+          .page-home__flex-buttons.notranslate(v-show="isReady")
             .page-home__btn.page-home__btn--gallery(@click="$router.push({ name: 'catalog' })")
-              | View catalog
+              | Catalog
             .page-home__btn.page-home__btn--about(@click="$router.push({ name: 'about' })")
               | About
 </template>
@@ -111,13 +111,16 @@ export default {
     padding: $indent-md;
     margin: 0 $indent-md;
     border: 2px solid $white;
+    border-radius: $borderRadius / 2;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     transition: background .5s ease;
     cursor: pointer;
 
     &:hover {
-      background: rgba($lime-4, 0.7);
+      background: rgba($lime-3, 0.7);
     }
   }
 
@@ -171,7 +174,7 @@ export default {
     }
   }
 
-  @media screen and (min-width: 381px) and (max-width: 430px) {
+  @media screen and (max-width: 430px) {
     &__flex-title {
       font-size: 25px;
     }
@@ -182,21 +185,6 @@ export default {
 
     &__btn {
       width: 120px;
-    }
-  }
-
-  @media screen and (max-width: 380px) {
-    &__flex-title {
-      font-size: 22px;
-    }
-
-    &__flex-description {
-      font-size: 15px;
-    }
-
-    &__btn {
-      width: 100px;
-      font-size: 14px;
     }
   }
 }
