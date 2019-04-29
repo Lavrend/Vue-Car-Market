@@ -42,9 +42,6 @@ export default {
 </script>
 
 <style lang="scss">
-$spinnerWidth: 70px;
-$spinnerHeight: 50px;
-
 .page-about {
   height: 100%;
   text-align: center;

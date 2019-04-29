@@ -7,28 +7,37 @@
       @toggle="searchToggle")
       CatalogSearch.page-catalog__search
 
-    .page-catalog__content
-      h1.page-catalog__title
-        | Cars catalog
-      .page-catalog__title-label.notranslate
-        | {{ getTitleLabel }}
+    uiSpinner.page-catalog__spinner(v-if="!isCatalogReady")
 
-      CatalogPagination.page-catalog__pagination(:minPages="2")
+    transition(name="transition-fade")
+      .page-catalog__content(v-if="isCatalogReady" ref="catalogContent")
+        h1.page-catalog__title
+          | Cars catalog
+        .page-catalog__title-label.notranslate
+          | {{ getTitleLabel }}
 
-      CatalogList.page-catalog__list
-      .page-catalog__empty-list(v-if="!itemsLength")
-        | The list is empty
+        CatalogPagination.page-catalog__pagination(:minPages="2")
 
-      CatalogPagination.page-catalog__pagination(:minPages="2")
+        CatalogList.page-catalog__list
+        .page-catalog__empty-list(v-if="!itemsLength")
+          | The list is empty
+
+        CatalogPagination.page-catalog__pagination(
+          :minPages="2"
+          @changePage="scrollContent"
+        )
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
+import _animate from '@/utils/animate';
 
 import CatalogControl from '@/components/Catalog/CatalogControl';
 import CatalogSearch from '@/components/Catalog/CatalogSearch';
 import CatalogPagination from '@/components/Catalog/CatalogPagination';
 import CatalogList from '@/components/Catalog/CatalogList';
+
+import uiSpinner from '@/ui/Spinner';
 
 export default {
   name: 'page-catalog',
@@ -38,10 +47,18 @@ export default {
     CatalogSearch,
     CatalogPagination,
     CatalogList,
+    uiSpinner,
+  },
+
+  data() {
+    return {
+      isCatalogReady: false,
+    };
   },
 
   computed: {
     ...mapState('app', [
+      'isAppReady',
       'isSearchActive',
     ]),
 
@@ -63,9 +80,28 @@ export default {
     },
   },
 
+  created() {
+    this.$nextTick(async () => {
+      await this.$store.dispatch('catalog/init');
+      this.isCatalogReady = true;
+    });
+  },
+
   methods: {
     searchToggle() {
       this.$store.dispatch('app/searchToggle');
+    },
+
+    scrollContent() {
+      const el = this.$refs.catalogContent;
+
+      const draw = (time) => {
+        const newPos = -el.scrollTop * time;
+
+        el.scrollTop += newPos;
+      };
+
+      _animate(draw, 300, 'easeInQuad', 500);
     },
   },
 };
@@ -76,6 +112,14 @@ export default {
   position: relative;
   height: 100%;
   text-align: center;
+
+  &__spinner {
+    position: relative;
+    width: $spinnerWidth;
+    height: $spinnerHeight;
+    top: $headerHeight;
+    margin: 0 auto;
+  }
 
   &__content {
     height: 100%;

@@ -13,7 +13,6 @@
 
 <script>
 import { mapState } from 'vuex';
-import hideAddressBar from '@/utils/hideAddressBar';
 
 // Layouts
 import LayoutHome from '@/layouts/Home';
@@ -45,9 +44,6 @@ export default {
 
   created() {
     this.$nextTick(() => {
-      hideAddressBar(window);
-
-      this.$store.dispatch('catalog/init');
       this.$store.dispatch('app/setPageReady', true);
     });
   },

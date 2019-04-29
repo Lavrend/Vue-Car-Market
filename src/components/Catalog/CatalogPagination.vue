@@ -50,6 +50,8 @@ export default {
       this.$store.dispatch('catalog/setCurrentPage', {
         page,
       });
+
+      this.$emit('changePage', page);
     },
   },
 };
