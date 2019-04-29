@@ -1,6 +1,6 @@
 export default {
   DEBUG: process.env.NODE_ENV !== 'production',
-  API_HOST: process.env.API_HOST || 'api/',
+  API_HOST: process.env.VUE_APP_API_HOST || process.env.API_HOST || 'api/',
   DEFAULT_PAGE_SIZE: 20,
 
   navMenu: [

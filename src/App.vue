@@ -13,6 +13,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import hideAddressBar from '@/utils/hideAddressBar';
 
 // Layouts
 import LayoutHome from '@/layouts/Home';
@@ -44,19 +45,11 @@ export default {
 
   created() {
     this.$nextTick(() => {
-      this.hideMobileAddressBar();
+      hideAddressBar(window);
 
       this.$store.dispatch('catalog/init');
       this.$store.dispatch('app/setPageReady', true);
     });
-  },
-
-  methods: {
-    hideMobileAddressBar() {
-      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-        window.scrollTo(0, 1);
-      }
-    },
   },
 };
 </script>
